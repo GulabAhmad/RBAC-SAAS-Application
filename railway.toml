@@ -1,0 +1,10 @@
+[build]
+builder = "nixpacks"
+buildCommand = "uv sync"
+
+[deploy]
+startCommand = "uvicorn src.rbac_version_2.main:app --host 0.0.0.0 --port $PORT --workers 1 --timeout-keep-alive 30 --limit-concurrency 100"
+healthcheckPath = "/health"
+healthcheckTimeout = 100
+startTimeout = 100
+
